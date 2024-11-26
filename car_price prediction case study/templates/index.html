@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Car Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ 
+ <div class="login">
+  <div class = 'content'>
+    <div class = "heading">
+      <h1>Car Price Prediction</h1>
+    </div>
+	
+  
+     
+    <form action="{{ url_for('predict') }}" method="post">
+      <div class ='InsideContent'>
+
+          <div class = 'block'>
+                <label>Car Brand:</label>
+                <input type="text" name="brand" placeholder="Enter Brand name (Ex: Ford)" size="80" height="50" required="required" />
+          </div>
+          <div class = 'block'>
+                <label>Model:</label>
+                <input type="text" name="model" placeholder="Enter model name" size="80" required="required" />
+          </div>
+          <div class = 'block'>
+                <label>Year:</label>
+        		    <input type="text" name="year" placeholder="Enter year" size="80" required="required" />
+          </div>
+
+          
+          <div class = 'block'>
+            <label>Mileage:</label>
+            <input type="text" name="mileage" placeholder="Enter the mileage in kilometers" size="80" required="required" />
+          </div>
+
+          <div class = 'block'>
+                <label>Condition:</label>
+                    <select name="Condition" id="dropdownblock" style="width: 80px;">
+                    <option value="with mileage">with mileage</option>
+                    <option value="with damage">Damaged</option>
+                    <option value="for parts">For parts</option>
+                </select>
+          </div>
+                
+          
+          <div class = 'block'>
+            <label>Fuel Type:</label>
+            <select name="Fuel" >
+                    <option value="diesel">Diesel</option>
+                    <option value="petrol">Petrol</option>
+            </select>
+          </div>
+      </div>
+
+
+      <div class = 'InsideContent'>
+          <div class = 'block'>
+            <label>Volume :</label>
+            <input type="text" name="volume" placeholder="Enter the volume of car(cm3)" size="80" required="required" />
+          </div>
+
+          <div class = 'block'>
+            <label>Colour:</label>
+            <select name="colour" id="dropdownblock" style="width: 80px;">
+                    <option value="black">Black</option>
+                    <option value="silver">Silver</option>
+                    <option value="purple">Purple</option>
+                    <option value="blue">Blue</option>
+                    <option value="burgundy">Burgundy</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="brown">Brown</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="other">Other</option>
+            </select>
+          </div>
+          <div class = 'block'>
+            <label>Transmission:</label>
+            <select name="transmission" >
+                    <option value="mechanics">Mechanics</option>
+                    <option value="auto">Automatic</option>
+            </select>
+          </div>
+          <div class = 'block'>
+            <label>Drive unit:</label>
+            <select name="drive" >
+                    <option value="front-wheel drive">Front-wheel drive</option>
+                    <option value="rear drive">Rear drive</option>
+                    <option value="part-time four-wheel drive">Part-time four-wheel drive</option>
+                    <option value="all-wheel drive">All-wheel drive</option>
+            </select>
+          </div>
+          <div class = 'block'>
+            <label>Segment:</label>
+            <select name="segment" id="dropdownblock" style="width: 80px;">
+                    <option value="A">Segment A</option>
+                    <option value="B">Segment B</option>
+                    <option value="C">Segment C</option>
+                    <option value="D">Segment D</option>
+                    <option value="E">Segment E</option>
+                    <option value="F">Segment F</option>
+                    <option value="J">Segment J</option>
+                    <option value="M">Segment M</option>
+                    <option value="S">Segment S</option>
+            </select>
+          </div>
+
+      </div>
+          
+          
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict Car price</button>
+    </form>
+  </div>
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
